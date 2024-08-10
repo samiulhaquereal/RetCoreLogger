@@ -1,18 +1,12 @@
-/// If you define your own level, make sure you use a value
-/// between those used in [Level.all] and [Level.off].
 class Level implements Comparable<Level> {
   final String name;
 
-  /// Unique value for this level. Used to order levels, so filtering can
-  /// exclude messages whose level is under certain value.
   final int value;
 
   const Level(this.name, this.value);
 
-  /// Special key to turn on logging for all levels ([value] = 0).
   static const Level all = Level('all', 0);
 
-  /// Special key to turn off all logging ([value] = 2000).
   static const Level off = Level('off', 2000);
 
   static const Level verbose = Level('verbose', 300);
