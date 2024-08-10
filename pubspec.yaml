@@ -1,7 +1,7 @@
 name: retcorelogger
 description: "A new Flutter project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/samiulhaquereal/RetCoreLogger
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
