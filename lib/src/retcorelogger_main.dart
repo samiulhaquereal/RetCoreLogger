@@ -13,23 +13,23 @@ class RetCoreLogger {
     }
   }
 
-  void v(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
+  void verbose(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
     _log(Level.verbose, message, tag: tag, title: title, stackTrace: stackTrace);
   }
 
-  void d(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
+  void debug(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
     _log(Level.debug, message, tag: tag, title: title, stackTrace: stackTrace);
   }
 
-  void i(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
+  void info(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
     _log(Level.info, message, tag: tag, title: title, stackTrace: stackTrace);
   }
 
-  void w(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
+  void warning(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
     _log(Level.warning, message, tag: tag, title: title, stackTrace: stackTrace);
   }
 
-  void e(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
+  void error(dynamic message, {String? tag, String? title, StackTrace? stackTrace}) {
     _log(Level.error, message, tag: tag, title: title, stackTrace: stackTrace);
   }
 
