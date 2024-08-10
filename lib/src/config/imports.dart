@@ -3,3 +3,8 @@ export 'package:retcorelogger/src/formatter/pretty_formatter.dart';
 export 'package:retcorelogger/src/handler.dart';
 export 'package:retcorelogger/src/level.dart';
 export 'package:retcorelogger/src/record.dart';
+export 'package:ansicolor/ansicolor.dart';
+export 'package:retcorelogger/src/emitter.dart';
+export 'package:retcorelogger/src/formatter.dart';
+export 'package:retcorelogger/src/util/char_width.dart';
+export 'package:retcorelogger/src/util/utils.dart';

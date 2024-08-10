@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:retcorelogger/src/formatter.dart';
-import 'package:retcorelogger/src/record.dart';
-import 'package:retcorelogger/src/util/char_width.dart';
-import 'package:retcorelogger/src/util/utils.dart';
+import 'package:retcorelogger/src/config/imports.dart';
+
+
 
 /// Format log message.
 class PrettyFormatter extends Formatter {

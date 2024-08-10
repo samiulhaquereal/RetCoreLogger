@@ -1,7 +1,4 @@
-import 'package:ansicolor/ansicolor.dart';
-import 'package:retcorelogger/src/emitter.dart';
-import 'package:retcorelogger/src/level.dart';
-import 'package:retcorelogger/src/record.dart';
+import 'package:retcorelogger/src/config/imports.dart';
 
 /// Print to console.
 class ConsoleEmitter extends Emitter {

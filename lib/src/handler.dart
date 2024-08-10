@@ -1,13 +1,12 @@
-import 'package:retcorelogger/src/emitter.dart';
-import 'package:retcorelogger/src/formatter.dart';
-import 'package:retcorelogger/src/record.dart';
 
-/// Log handler.
-class Handler {
+
+import 'package:retcorelogger/src/config/imports.dart';
+
+class LogHandler {
   final Formatter formatter;
   final Emitter emitter;
 
-  Handler({
+  LogHandler({
     required this.formatter,
     required this.emitter,
   });

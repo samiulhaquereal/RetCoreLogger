@@ -1,14 +1,14 @@
 import 'package:retcorelogger/src/config/imports.dart';
 
-RetCoreLogger retCoreLogger = RetCoreLogger(handler: Handler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
+RetCoreLogger retCoreLogger = RetCoreLogger(handler: LogHandler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
 
 
 class RetCoreLogger {
   Level level = Level.all;
 
-  final Set<Handler> _handlers = {};
+  final Set<LogHandler> _handlers = {};
 
-  RetCoreLogger({Handler? handler}) {
+  RetCoreLogger({LogHandler? handler}) {
     if (handler != null) {
       _handlers.add(handler);
     }
@@ -45,21 +45,21 @@ class RetCoreLogger {
       return;
     }
     Record record = Record(level, message, DateTime.now(), tag, title, stackTrace);
-    for (Handler handler in _handlers) {
+    for (LogHandler handler in _handlers) {
       handler.handle(record);
     }
   }
 
-  void registerHandler(Handler handler) {
+  void registerHandler(LogHandler handler) {
     _handlers.add(handler);
   }
 
-  void unregisterHandler(Handler handler) {
+  void unregisterHandler(LogHandler handler) {
     _handlers.remove(handler);
   }
 
   void destroy() {
-    for (Handler handler in _handlers) {
+    for (LogHandler handler in _handlers) {
       handler.destroy();
     }
     _handlers.clear();
