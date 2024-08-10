@@ -1,5 +1,3 @@
-
-
 import 'package:retcorelogger/src/config/imports.dart';
 
 class LogHandler {

@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'dart:math';
-
 import 'package:retcorelogger/src/config/imports.dart';
 
-/// Log record.
 class Record {
   Record(
     this.level,
@@ -18,24 +14,21 @@ class Record {
   final dynamic message;
   final DateTime dateTime;
 
-  /// Optional.
   final String? tag;
 
-  /// Optional. [title] shows above [message].
   final String? title;
 
-  /// Optional.
   final StackTrace? stackTrace;
 
   String _convertStackTrace(StackTrace stackTrace) {
-    String st = stackTrace.toString();
-    List<String> lines = st.split('\n');
+    String stack = stackTrace.toString();
+    List<String> lines = stack.split('\n');
     int length = lines.length;
-    st = length <= 10 ? st : lines.sublist(0, min(length, 10)).join('\n');
-    if (st.endsWith('\n')) {
-      st = st.substring(0, st.length - 2); // rm the last empty line.
+    stack = length <= 10 ? stack : lines.sublist(0, min(length, 10)).join('\n');
+    if (stack.endsWith('\n')) {
+      stack = stack.substring(0, stack.length - 2); // rm the last empty line.
     }
-    return st;
+    return stack;
   }
 
   String encode() {
