@@ -70,9 +70,7 @@ class PrettyFormatter extends Formatter {
 
     // tag/level time caller
     String? caller = callerGetter?.call().toString();
-    lines.add('$verticalLine ${RetCoreUtils.fmtTime(record.dateTime)}'
-        ' ${record.tag ?? record.level.name}'
-        '${caller == null ? '' : (' (' + caller + ')')}');
+    lines.add('$verticalLine ${record.tag ?? record.level.name} $verticalLine ${RetCoreUtils.fmtTime(record.dateTime)} $verticalLine ${caller == null ? '' : (' (' + caller + ')')}');
 
     lines.add(middleBorder);
 
