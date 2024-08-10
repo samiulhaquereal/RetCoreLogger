@@ -1,6 +1,6 @@
 import 'package:retcorelogger/src/config/imports.dart';
 
-class DogUtils {
+class RetCoreUtils {
   static String _threeDigits(int n) {
     if (n >= 100) return '$n';
     if (n >= 10) return '0$n';
@@ -26,7 +26,7 @@ class DogUtils {
     List<Frame> frames = Trace.current().frames;
     if (frames.isNotEmpty) {
       for (int i = frames.length - 1; i >= 0; i--) {
-        if (frames[i].package == 'dog') {
+        if (frames[i].package == 'retcorelogger') {
           return frames[min<int>(i + 1, frames.length - 1)].toString();
         }
       }

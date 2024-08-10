@@ -1,5 +1,5 @@
 // Generated on 2021-10-20 06:59:36.327003Z
-part of dog.util;
+part of retcore.util;
 
 List<Tuple2> _asciiTable = [
   Tuple2(0x20, 0x7E),

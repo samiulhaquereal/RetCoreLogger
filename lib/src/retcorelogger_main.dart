@@ -1,6 +1,6 @@
 import 'package:retcorelogger/src/config/imports.dart';
 
-_RetCoreLogger retCoreLogger = _RetCoreLogger(handler: LogHandler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
+_RetCoreLogger retcoreLogger = _RetCoreLogger(handler: LogHandler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
 
 class _RetCoreLogger {
   Level level = Level.all;

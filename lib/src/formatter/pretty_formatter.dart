@@ -13,20 +13,15 @@ class PrettyFormatter extends Formatter {
     this.maxPrettyLines = 20,
     this.lineLength = 120,
     this.stackTraceLevel = 10,
-    this.callerGetter = DogUtils.defaultCallerInfo,
+    this.callerGetter = RetCoreUtils.defaultCallerInfo,
   });
 
-  /// If the pretty message lines exceed [maxPrettyLines],
-  /// then back to normal message style.
   final int maxPrettyLines;
 
-  /// Each message line length.
   final int lineLength;
 
-  /// The level we will retrieve from StackTrace.
   final int stackTraceLevel;
 
-  /// Function to get caller info.
   final MessageCallback? callerGetter;
 
   final JsonEncoder prettyJsonEncoder = JsonEncoder.withIndent('  ');
@@ -71,12 +66,11 @@ class PrettyFormatter extends Formatter {
   @override
   List<String> format(Record record) {
     List<String> lines = [];
-
     lines.add(topBorder);
 
     // tag/level time caller
     String? caller = callerGetter?.call().toString();
-    lines.add('$verticalLine ${DogUtils.fmtTime(record.dateTime)}'
+    lines.add('$verticalLine ${RetCoreUtils.fmtTime(record.dateTime)}'
         ' ${record.tag ?? record.level.name}'
         '${caller == null ? '' : (' (' + caller + ')')}');
 
@@ -159,7 +153,6 @@ class PrettyFormatter extends Formatter {
     return msg;
   }
 
-  /// [stackTraceLevel] lines at most.
   String convertStackTrace(StackTrace stackTrace) {
     String st = stackTrace.toString();
     List<String> lines = st.split('\n');

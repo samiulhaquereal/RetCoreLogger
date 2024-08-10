@@ -1,4 +1,4 @@
-library dog.util;
+library retcore.util;
 
 import 'package:tuple/tuple.dart';
 
