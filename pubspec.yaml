@@ -1,5 +1,5 @@
 name: retcorelogger
-description: "A new Flutter project."
+description: "A simple and elegant logging package for Dart, designed to work seamlessly with both Flutter and web applications. It offers an intuitive API for logging messages with various levels of severity. Easily configurable to suit your project's needs."
 version: 0.0.1
 homepage: https://github.com/samiulhaquereal/RetCoreLogger
 
