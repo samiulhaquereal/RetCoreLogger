@@ -1,5 +1,3 @@
-
-
 import 'package:retcorelogger/src/config/imports.dart';
 
 RetCoreLogger dog = RetCoreLogger(handler: Handler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
