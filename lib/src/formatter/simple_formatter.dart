@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:retcorelogger/src/formatter.dart';
-import 'package:retcorelogger/src/record.dart';
-import 'package:retcorelogger/src/util/utils.dart';
+import 'package:retcorelogger/src/config/imports.dart';
+
 
 /// This formatter will not generate borders.
 class SimpleFormatter extends Formatter {

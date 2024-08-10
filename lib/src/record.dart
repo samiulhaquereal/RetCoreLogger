@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:retcorelogger/src/formatter.dart';
-import 'package:retcorelogger/src/level.dart';
+
+import 'package:retcorelogger/src/config/imports.dart';
 
 /// Log record.
 class Record {
