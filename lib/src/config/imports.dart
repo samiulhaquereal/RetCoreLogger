@@ -8,3 +8,8 @@ export 'package:retcorelogger/src/emitter.dart';
 export 'package:retcorelogger/src/formatter.dart';
 export 'package:retcorelogger/src/util/char_width.dart';
 export 'package:retcorelogger/src/util/utils.dart';
+export 'package:retcorelogger/src/emitter/console_emitter_io.dart' if (dart.library.html) 'package:retcorelogger/src/emitter/console_emitter_web.dart';
+export 'package:retcorelogger/src/emitter/file_emitter_io.dart' if (dart.library.html) 'package:retcorelogger/src/emitter/file_emitter_web.dart';
+export 'dart:convert';
+export 'dart:math';
+export 'package:stack_trace/stack_trace.dart';

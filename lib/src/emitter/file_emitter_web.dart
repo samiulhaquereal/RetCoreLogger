@@ -1,5 +1,4 @@
-import 'package:retcorelogger/src/emitter.dart';
-import 'package:retcorelogger/src/record.dart';
+import 'package:retcorelogger/src/config/imports.dart';
 
 /// Unsupported
 class FileEmitter extends Emitter {

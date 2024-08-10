@@ -1,9 +1,4 @@
-import 'dart:convert';
-import 'dart:math';
-
 import 'package:retcorelogger/src/config/imports.dart';
-
-
 
 /// Format log message.
 class PrettyFormatter extends Formatter {

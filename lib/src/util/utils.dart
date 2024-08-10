@@ -1,6 +1,4 @@
-import 'dart:math';
-
-import 'package:stack_trace/stack_trace.dart';
+import 'package:retcorelogger/src/config/imports.dart';
 
 class DogUtils {
   static String _threeDigits(int n) {

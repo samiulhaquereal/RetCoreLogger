@@ -1,9 +1,8 @@
 import 'dart:html';
 import 'dart:js';
+import 'package:retcorelogger/src/config/imports.dart';
 
-import 'package:retcorelogger/src/emitter.dart';
-import 'package:retcorelogger/src/level.dart';
-import 'package:retcorelogger/src/record.dart';
+
 
 /// Print to browser console.
 class ConsoleEmitter extends Emitter {
