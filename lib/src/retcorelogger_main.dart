@@ -1,13 +1,13 @@
 import 'package:retcorelogger/src/config/imports.dart';
 
-RetCoreLogger retCoreLogger = RetCoreLogger(handler: LogHandler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
+_RetCoreLogger retCoreLogger = _RetCoreLogger(handler: LogHandler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
 
-class RetCoreLogger {
+class _RetCoreLogger {
   Level level = Level.all;
 
   final Set<LogHandler> _handlers = {};
 
-  RetCoreLogger({LogHandler? handler}) {
+  _RetCoreLogger({LogHandler? handler}) {
     if (handler != null) {
       _handlers.add(handler);
     }
