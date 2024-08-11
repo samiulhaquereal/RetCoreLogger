@@ -1,6 +1,8 @@
+import 'package:retcorelogger/retcorelogger.dart';
 import 'package:retcorelogger/src/config/imports.dart';
 
 _RetCoreLogger retcoreLogger = _RetCoreLogger(handler: LogHandler(formatter: PrettyFormatter(), emitter: ConsoleEmitter()));
+_RetCoreLogger retcoreSimpleLogger = _RetCoreLogger(handler: LogHandler(formatter: SimpleFormatter(), emitter: ConsoleEmitter()));
 
 class _RetCoreLogger {
   Tag level = Tag.all;
@@ -17,20 +19,20 @@ class _RetCoreLogger {
     _log(Tag.verbose, message, level: level, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
-  void debug(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.debug, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+  void debug(dynamic message, {String? level, String? title, StackTrace? stackTrace, String? method,String? status}) {
+    _log(Tag.debug, message, level: level, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
-  void info(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.info, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+  void info(dynamic message, {String? level, String? title, StackTrace? stackTrace, String? method,String? status}) {
+    _log(Tag.info, message, level: level, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
-  void warning(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.warning, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+  void warning(dynamic message, {String? level, String? title, StackTrace? stackTrace, String? method,String? status}) {
+    _log(Tag.warning, message, level: level, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
-  void error(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.error, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+  void error(dynamic message, {String? level, String? title, StackTrace? stackTrace, String? method,String? status}) {
+    _log(Tag.error, message, level: level, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
   void _log(
