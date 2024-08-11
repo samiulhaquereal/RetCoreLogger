@@ -2,21 +2,26 @@ import 'package:retcorelogger/src/config/imports.dart';
 
 class Record {
   Record(
-    this.level,
+    this.tag,
     this.message,
     this.dateTime,
-    this.tag,
+    this.level,
     this.title,
     this.stackTrace,
+    this.method,
+    this.status,
   );
 
-  final Level level;
+  final Tag tag;
   final dynamic message;
   final DateTime dateTime;
 
-  final String? tag;
+  final String? level;
 
   final String? title;
+  final String? status;
+
+  final String? method;
 
   final StackTrace? stackTrace;
 
@@ -47,44 +52,47 @@ class Record {
       msg = message.toString();
     }
     Map<String, dynamic> map = {
-      'level': level.name,
+      'tag': tag.name,
       'message': msg,
       'dateTime': dateTime.microsecondsSinceEpoch,
-      'tag': tag,
+      'level': level,
       'title': title,
       'stackTrace': stackTrace?.toString(),
+      'method': method,
+      'status': status,
     };
     return jsonEncode(map);
   }
 
   factory Record.decode(String data) {
     Map map = jsonDecode(data);
-    String lv = map['level'].toString().toLowerCase();
-    Level level = Level.debug;
-    switch (lv) {
+    String tag = map['tag'].toString().toLowerCase();
+    Tag tagg = Tag.debug;
+    switch (tag) {
       case 'verbose':
-        level = Level.verbose;
+        tagg = Tag.verbose;
         break;
       case 'debug':
-        level = Level.debug;
+        tagg = Tag.debug;
         break;
       case 'info':
-        level = Level.info;
+        tagg = Tag.info;
         break;
       case 'warning':
-        level = Level.warning;
+        tagg = Tag.warning;
         break;
       case 'error':
-        level = Level.error;
+        tagg = Tag.error;
         break;
     }
     var message = map['message'];
     DateTime dateTime = DateTime.fromMicrosecondsSinceEpoch(map['dateTime']);
     StackTrace? stackTrace;
+    String? method = map['method'].toString().toUpperCase();
+    String? status = map['status'].toString();
     if (map['stackTrace'] is String) {
       stackTrace = StackTrace.fromString(map['stackTrace']);
     }
-    return Record(
-        level, message, dateTime, map['tag'], map['title'], stackTrace);
+    return Record(tagg, message, dateTime, map['level'], map['title'], stackTrace,method,status);
   }
 }

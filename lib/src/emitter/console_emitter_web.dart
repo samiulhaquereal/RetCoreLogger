@@ -11,16 +11,16 @@ class ConsoleEmitter extends Emitter {
   @override
   void emit(Record record, List<String> lines) {
     String output = lines.join('\n');
-    if (record.level == Level.verbose) {
+    if (record.tag == Tag.verbose) {
       jsConsole('debug', ['%c$output', 'color:grey']);
-    } else if (record.level == Level.debug) {
+    } else if (record.tag == Tag.debug) {
       jsConsole('debug', ['%c$output', 'color:#00758F']); // MosaicBlue
-    } else if (record.level == Level.info) {
+    } else if (record.tag == Tag.info) {
       window.console.info(output);
-    } else if (record.level == Level.warning) {
+    } else if (record.tag == Tag.warning) {
       output = '\n' + output; // chrome
       window.console.warn(output);
-    } else if (record.level == Level.error) {
+    } else if (record.tag == Tag.error) {
       output = '\n' + output; // chrome
       window.console.error(output);
     } else {

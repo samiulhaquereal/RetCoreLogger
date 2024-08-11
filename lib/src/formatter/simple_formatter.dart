@@ -15,7 +15,7 @@ class SimpleFormatter extends Formatter {
     List<String> lines = [];
     String? caller = callerGetter?.call().toString();
     lines.add('${record.dateTime.toIso8601String()}'
-        ' ${record.tag ?? record.level.name}'
+        ' ${record.level ?? record.tag.name}'
         '${caller == null ? '' : (' (' + caller + ')')}');
     if (record.title != null) {
       lines.add(record.title!);
