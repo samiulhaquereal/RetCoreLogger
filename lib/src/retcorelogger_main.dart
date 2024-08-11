@@ -13,39 +13,39 @@ class _RetCoreLogger {
     }
   }
 
-  void verbose(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.verbose, message, tag: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+  void verbose(dynamic message, {String? level, String? title, StackTrace? stackTrace, String? method,String? status}) {
+    _log(Tag.verbose, message, level: level, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
   void debug(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.debug, message, tag: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+    _log(Tag.debug, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
   void info(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.info, message, tag: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+    _log(Tag.info, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
   void warning(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.warning, message, tag: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+    _log(Tag.warning, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
   void error(dynamic message, {String? tag, String? title, StackTrace? stackTrace, String? method,String? status}) {
-    _log(Tag.error, message, tag: tag, title: title, stackTrace: stackTrace,method: method,status:status);
+    _log(Tag.error, message, level: tag, title: title, stackTrace: stackTrace,method: method,status:status);
   }
 
   void _log(
-    Tag level,
+    Tag tag,
     dynamic message, {
-    String? tag,
+    String? level,
     String? title,
     String? method,
     String? status,
     StackTrace? stackTrace,
   }) {
-    if (level < this.level) {
+    if (tag < this.level) {
       return;
     }
-    Record record = Record(level, message, DateTime.now(), tag, title, stackTrace,method,status);
+    Record record = Record(tag, message, DateTime.now(), level, title, stackTrace,method,status);
     for (LogHandler handler in _handlers) {
       handler.handle(record);
     }
